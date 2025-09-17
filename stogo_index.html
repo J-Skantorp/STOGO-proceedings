@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <title>STOGO Proceedings 2025</title>
+ <style>
+   body { font-family: sans-serif; padding: 2em; }
+   #protected { display: none; margin-top: 1em; }
+   #error { color: red; }
+ </style>
+</head>
+<body>
+ <h2>Protected Download</h2>
+ <p>Please enter the password to access the file:</p>
+
+ <input type="password" id="password" placeholder="Enter password" />
+ <button onclick="checkPassword()">Unlock</button>
+ <p id="error"></p>
+
+ <div id="protected">
+   <p>✅ Access granted. <a href="STOGO_proceedings.pdf" download>Download the PDF</a></p>
+ </div>
+
+ <script>
+   const correctPassword = "STOGO"; // Change this
+
+   function checkPassword() {
+     const input = document.getElementById("password").value;
+     const error = document.getElementById("error");
+
+     if (input === correctPassword) {
+       document.getElementById("protected").style.display = "block";
+       error.textContent = "";
+     } else {
+       error.textContent = "❌ Incorrect password.";
+       document.getElementById("protected").style.display = "none";
+     }
+   }
+ </script>
+</body>
+</html>
